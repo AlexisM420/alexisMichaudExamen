@@ -1,0 +1,101 @@
+﻿<Window x:Class="Gestionnaire_Clients.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gestionnaire_Clients"
+        mc:Ignorable="d"
+        Title="Gestion de clients" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Fichier">
+
+            </MenuItem>
+            <MenuItem Header="_Edition">
+
+            </MenuItem>
+            <MenuItem Header="_Affichage">
+
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <TextBlock Text="Client sélectionné : "/>
+            <TextBlock Text="{Binding SelectedProduct.ShortDescription}"/>
+        </StatusBar>
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="150"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="18*"/>
+                </Grid.RowDefinitions>
+                <DockPanel>
+                    <TextBlock Text="Liste des clients  "/>
+                    <Button Content="Nouveau client" />
+                </DockPanel>
+                <ListView Grid.Row="1" ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Info}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="6*"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel>
+                        <Label Content="Prénom :       " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
+                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding SelectedProduct.UPC}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Column="1">
+                        <Label Content="Nom :        " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
+                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding SelectedProduct.UPC}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
+                        <Label Content="Adresse :       " VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.Code}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2">
+                        <Label Content="Ville :             " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="2" Grid.Column="1">
+                        <Label Content="Province :  " Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.Description}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="3">
+                        <Label Content="Code postal :" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="4" Grid.ColumnSpan="2">
+                        <Label Content="Contact :       " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                    </DockPanel>
+                    <DockPanel Grid.Row="5" Grid.Column="1" Margin="6">
+                        <Button Content="Supprimer client"/>
+                    </DockPanel>
+                    <Image Grid.Row="6" Grid.RowSpan="2"
+                           Source="{Binding SelectedProduct.PicturePath}" 
+                           Margin="6"/>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
