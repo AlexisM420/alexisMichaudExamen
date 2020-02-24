@@ -88,7 +88,7 @@ namespace intra_models
         }
 
 
-        public string Info => Name+LastName;
+        public string Info => Name+", "+LastName;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

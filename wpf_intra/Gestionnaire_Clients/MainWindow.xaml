@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gestionnaire_Clients"
         mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource self}}"
         Title="Gestion de clients" Height="450" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Fichier">
-
+                <MenuItem Header="Ouvrir..."/>
+                <MenuItem Header="Sauvegarder"/>
+                <MenuItem Header="Fermer"/>
+                <Separator/>
+                <MenuItem Header="Nouveau client"/>
+                <Separator/>
+                <MenuItem Header="Quitter"/>
             </MenuItem>
             <MenuItem Header="_Edition">
 
@@ -36,7 +43,7 @@
                     <TextBlock Text="Liste des clients  "/>
                     <Button Content="Nouveau client" />
                 </DockPanel>
-                <ListView Grid.Row="1" ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
+                <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged">
                     <ListView.ItemTemplate >
                         <DataTemplate>
                             <TextBlock Text="{Binding Info}"/>
@@ -61,38 +68,40 @@
                     </Grid.RowDefinitions>
                     <DockPanel>
                         <Label Content="Prénom :       " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
-                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding SelectedProduct.UPC}"/>
+                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding CurrentCustomer.Name}"/>
                     </DockPanel>
                     <DockPanel Grid.Column="1">
                         <Label Content="Nom :        " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" />
-                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding SelectedProduct.UPC}"/>
+                        <TextBox Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Text="{Binding CurrentCustomer.LastName}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
                         <Label Content="Adresse :       " VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.Code}"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.Address}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="2">
                         <Label Content="Ville :             " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.City}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="2" Grid.Column="1">
                         <Label Content="Province :  " Grid.Row="3" Grid.Column="0" VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.Description}"/>
+                        <TextBox Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.Province}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="3">
                         <Label Content="Code postal :" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.PostalCode}"/>
                     </DockPanel>
                     <DockPanel Grid.Row="4" Grid.ColumnSpan="2">
                         <Label Content="Contact :       " Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding SelectedProduct.ShortDescription}"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.ContactInfo}"/> 
                     </DockPanel>
                     <DockPanel Grid.Row="5" Grid.Column="1" Margin="6">
                         <Button Content="Supprimer client"/>
                     </DockPanel>
-                    <Image Grid.Row="6" Grid.RowSpan="2"
-                           Source="{Binding SelectedProduct.PicturePath}" 
+                    <DockPanel Grid.Row="6">
+                        <Image
+                           Source="{Binding CurrentCustomer.PicturePath}" 
                            Margin="6"/>
+                    </DockPanel>
 
                 </Grid>
             </Grid>
