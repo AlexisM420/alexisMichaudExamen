@@ -27,7 +27,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <TextBlock Text="Client sélectionné : "/>
-            <TextBlock Text="{Binding SelectedProduct.ShortDescription}"/>
+            <TextBlock Text="{Binding CurrentCustomer.Info}"/>
         </StatusBar>
         <Grid Margin="6">
             <Grid.ColumnDefinitions>
@@ -46,7 +46,7 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged" x:Name="lstview">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Info, Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Info}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
