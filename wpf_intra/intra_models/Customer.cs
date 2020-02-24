@@ -88,7 +88,18 @@ namespace intra_models
         }
 
 
-        public string Info => Name+", "+LastName;
+        //public string Info => $"{Name}, {LastName}";
+        private string info;
+        public string Info
+        {
+            get => info;
+            set
+            {
+                info = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

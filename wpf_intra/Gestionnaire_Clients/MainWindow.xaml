@@ -14,7 +14,7 @@
                 <MenuItem Header="Sauvegarder"/>
                 <MenuItem Header="Fermer"/>
                 <Separator/>
-                <MenuItem Header="Nouveau client"/>
+                <MenuItem Header="Nouveau client" Click="MenuItem_Click"/>
                 <Separator/>
                 <MenuItem Header="Quitter"/>
             </MenuItem>
@@ -41,10 +41,10 @@
                 </Grid.RowDefinitions>
                 <DockPanel>
                     <TextBlock Text="Liste des clients  "/>
-                    <Button Content="Nouveau client" />
+                    <Button Content="Nouveau client" Click="MenuItem_Click"/>
                 </DockPanel>
-                <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged">
-                    <ListView.ItemTemplate >
+                <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged" x:Name="lstview">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Info}"/>
                         </DataTemplate>
@@ -95,7 +95,7 @@
                         <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding CurrentCustomer.ContactInfo}"/> 
                     </DockPanel>
                     <DockPanel Grid.Row="5" Grid.Column="1" Margin="6">
-                        <Button Content="Supprimer client"/>
+                        <Button Content="Supprimer client" Click="Button_Click"/>
                     </DockPanel>
                     <DockPanel Grid.Row="6">
                         <Image
