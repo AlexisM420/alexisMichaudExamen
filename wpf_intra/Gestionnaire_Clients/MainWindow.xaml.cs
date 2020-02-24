@@ -77,10 +77,7 @@ namespace Gestionnaire_Clients
             Customers.Add(new Customer() { Name = "James", LastName = "Simon", Address = "4628 Enim. Av.", City = "Chilliwack", Province = "BC", PostalCode = "V3Z 2J1", PicturePath = "images/user.png", ContactInfo = "Cell : 343-151-5411" });
             Customers.Add(new Customer() { Name = "Christopher", LastName = "Monroe", Address = "8142 Fusce St.", City = "Baie-Comeau", Province = "QC", PostalCode = "G2B 9R9", PicturePath = "images/user.png", ContactInfo = "Work : 827-654-9939" });
             CurrentCustomer = Customers[0];
-            foreach (Customer customer in Customers)
-            {
-                customer.Info = customer.LastName + ", " + customer.Name;
-            }
+
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)

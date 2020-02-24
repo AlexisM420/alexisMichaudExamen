@@ -46,7 +46,7 @@
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}" SelectedItem="{Binding CurrentCustomer}" SelectionChanged="ListView_SelectionChanged" x:Name="lstview">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Info}"/>
+                            <TextBlock Text="{Binding Info, Mode=TwoWay}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
